@@ -1,0 +1,21 @@
+@charset "utf-8";
+
+$body-background-color: hsla(0, 0%, 96%, 1); // Bulma: has-background-light
+$text: hsla(0, 0%, 21%, 1); // Bulma: has-text-grey-darker
+
+@import "../node_modules/bulma/bulma.sass";
+
+html {
+    min-height: 100vh;
+    overflow: auto;
+    width: 100%;
+
+    body {
+        height: 100%;
+        width: 100%;
+
+        * {
+            user-select: none;
+        }
+    }
+}

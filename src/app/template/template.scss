@@ -1,0 +1,13 @@
+@media all {
+    #template {
+        background: transparent;
+        height: 100vh;
+        width: 100%;
+    }
+}
+
+@media all and (max-width: 480px) {
+    #template {
+        background: transparent;
+    }
+}
