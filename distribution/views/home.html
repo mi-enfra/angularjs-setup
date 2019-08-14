@@ -1,3 +1,35 @@
 <section class="section" id="home">
-    <h1 class="title">Home</h1>
+    <nav class="buttons are-small">
+        <button class="button"
+            ng-class="{'is-black': app.sectionSelected === section.toLowerCase()}"
+            ng-click="app.switchSection(section.toLowerCase())"
+            ng-repeat="section in app.sectionsAll">
+            {{ section }}
+        </button>
+    </nav>
+    <div class="box"
+        ng-if="app.sectionSelected === section.toLowerCase()"
+        ng-repeat="section in app.sectionsAll">
+        <h1 class="title">{{ section }}</h1>
+        <div class="field has-addons">
+            <div class="control">
+                <input class="input"
+                    ng-keyup="app.catchKeyup($event)">
+            </div>
+            <div class="control">
+                <button class="button is-success">
+                    <span class="icon is-small">
+                        <i class="fas fa-save"></i>
+                    </span>
+                </button>
+            </div>
+            <div class="control">
+                <button class="button is-danger">
+                    <span class="icon is-small">
+                        <i class="fas fa-times"></i>
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
 </section>

@@ -1,9 +1,14 @@
 app.controller(
     'homeController',
     function($http, $scope) {
-        $scope = {
-            init: function init() {
-                $scope.fn.healthCheck()
+        $scope.app = {
+            sectionSelected: '',
+            sectionsAll: [
+                'Alpha',
+            ],
+
+            init: function () {
+                $scope.app.fn.healthCheck()
                 .then(
                     function (response) {
                         console.log('page | home | ' + response);
@@ -12,6 +17,16 @@ app.controller(
                         console.error(error);
                     }
                 );
+            },
+            catchKeyup: function (event) {
+                console.log(event.keyCode);
+            },
+            switchSection: function (section) {
+                if ($scope.app.sectionSelected !== section) {
+                    $scope.app.sectionSelected = section;
+                } else {
+                    $scope.app.sectionSelected = '';
+                }
             },
 
             fn: {
@@ -28,7 +43,6 @@ app.controller(
                                 resolve(response.data['Response Time']);
                             },
                             function error(error) {
-                                console.error(error);
                                 reject(error);
                             }
                         );
@@ -36,6 +50,6 @@ app.controller(
                 },
             },
         };
-        $scope.init();
+        $scope.app.init();
     }
 );
